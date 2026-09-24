@@ -1,0 +1,23 @@
+:root {
+  --cream: #FFF9F5;
+  --blush: #F9D5DC;
+  --blush-light: #FCE7EB;
+  --blush-dark: #E8A7B5;
+  --lavender: #E4DAF6;
+  --lavender-light: #F0EAFB;
+  --mint: #D5EFE3;
+  --mint-light: #EAF8F1;
+  --peach: #FFE2CF;
+  --butter: #FFF1B8;
+  --sky: #D8E8F8;
+  --plum: #4A3F5C;
+  --plum-soft: #8A7F9C;
+  --plum-muted: #685C7E;
+  --rose-deep: #D9718A;
+  
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --ease-fabric: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-soft: 0.5s;
+}

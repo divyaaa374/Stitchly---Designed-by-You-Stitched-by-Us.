@@ -1,0 +1,133 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--cream);
+    color: var(--plum);
+    font-family: var(--font-sans);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Subtle 4% atelier paper grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.038;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom soft pastel scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF5F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F9D5DC;
+  border-radius: 9999px;
+  border: 2px solid #FFF5F0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D9718A;
+}
+
+/* Atelier stitch line utilities */
+.stitch-border {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: rgba(217, 113, 138, 0.4);
+}
+
+.stitch-border-mint {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: rgba(155, 214, 186, 0.6);
+}
+
+.stitch-border-lavender {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: rgba(188, 167, 232, 0.5);
+}
+
+/* Tape measure ruler background utility */
+.tape-ruler-bg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(74, 63, 92, 0.35) 0px,
+    rgba(74, 63, 92, 0.35) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+/* Shimmer animation for buttons */
+@keyframes soft-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: soft-shimmer 2.5s infinite;
+}
+
+/* Needle thread draw keyframe */
+@keyframes stitch-dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-stitch {
+  animation: stitch-dash 1.6s linear infinite;
+}
+
+/* Thread-underlined input focus */
+.input-thread-focus {
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.input-thread-focus:focus {
+  outline: none;
+  border-color: var(--rose-deep);
+  box-shadow: 0 0 0 3px rgba(249, 213, 220, 0.45);
+}
+
+/* Prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
